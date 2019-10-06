@@ -6,12 +6,12 @@ import plotly.express as px
 desired_width = 600
 pd.set_option('display.width', desired_width)
 
-input_file = './raw_data/virginia.xls'
+input_file = 'raw_data/virginia.xls'
 
 crime_va = pd.read_excel(input_file)
 
 ############### drop description rows and columns
-crime_va.drop([0,1,2,3,4,5,100,101], axis=0, inplace=True)
+crime_va.drop([0,1,2,3,4,100,101], axis=0, inplace=True)
 crime_va.drop(['Table 8', 'Unnamed: 5'], axis=1, inplace=True)
 
 ############# set column names

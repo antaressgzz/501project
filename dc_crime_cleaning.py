@@ -3,6 +3,11 @@ from pprint import pprint
 import pandas as pd
 import logging
 import json
+import numpy as np
+from datetime import datetime
+
+desired_width = 600
+pd.set_option('display.width', desired_width)
 
 # 'https://maps2.dcgis.dc.gov/dcgis/rest/services/FEEDS/MPD/MapServer/26/query?'
 #                         'where=1%3D1&outFields=REPORT_DAT,SHIFT,METHOD,OFFENSE,NEIGHBORHOOD_CLUSTER,'
@@ -55,4 +60,45 @@ for n, l in enumerate(chunks(obj_ids[36200:], 100)):
     except json.decoder.JSONDecodeError:
         logger.warning('Round '+str(n)+' failed.')
         break
+
+crime_df.to_csv('raw_data/crime_df.csv')
+crime_df = pd.read_csv('raw_data/crime_df.csv')
+
+# with pd.option_context('display.max_columns', None):
+#     # print(crime_df.iloc[:, 1:].astype(np.float).describe())
+#     print(crime_df.head())
+
+cols = ['START_DATE','END_DATE','SHIFT','LATITUDE','LONGITUDE',
+        'BLOCK','OFFENSE','METHOD']
+crime_df = crime_df[cols]
+
+# check missing values
+print(np.where(pd.isnull(crime_df)))
+print('missing values in column', np.unique(np.where(pd.isnull(crime_df))[1]))
+# end_date has missing values
+# where is the missing values
+not_null = pd.notnull(crime_df.END_DATE)
+is_null = pd.isnull(crime_df.END_DATE)
+## date in this df are all unix timestamp + 000 at end
+## convert them to human-readable time
+crime_df.START_DATE = (crime_df.START_DATE.values / 1000).astype(np.int)
+crime_df.END_DATE.values[not_null] = (crime_df.END_DATE.values[not_null] / 1000).astype(np.int)
+
+t_mean = np.mean(crime_df.END_DATE.values[not_null] - crime_df.START_DATE.values[not_null]).astype(np.int)
+crime_df.END_DATE.values[is_null] = (crime_df.START_DATE.values[is_null] + t_mean).astype(np.int)
+## sort the df by start time
+crime_df.sort_values(by='START_DATE', inplace=True)
+print('number of negative start date:', np.sum(crime_df.START_DATE.values < 0))
+
+start_time = datetime(2016, 1, 1, 0, 0, 0)
+end_time = datetime(2017, 1, 1, 0, 0, 0)
+start_dates = [datetime.fromtimestamp(t) for t in crime_df.START_DATE.values]
+end_dates = [datetime.fromtimestamp(t) for t in crime_df.END_DATE.values]
+
+crime_df.START_DATE = start_dates
+crime_df.END_DATE = end_dates
+
+true_time = [start_time<t<end_time for t in start_dates]
+
+crime_df = crime_df[true_time]
 

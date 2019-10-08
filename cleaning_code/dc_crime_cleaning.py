@@ -84,12 +84,17 @@ is_null = pd.isnull(crime_df.END_DATE)
 crime_df.START_DATE = (crime_df.START_DATE.values / 1000).astype(np.int)
 crime_df.END_DATE.values[not_null] = (crime_df.END_DATE.values[not_null] / 1000).astype(np.int)
 
+
+## Compute the average time between START_DATE and END_DATE.
 t_mean = np.mean(crime_df.END_DATE.values[not_null] - crime_df.START_DATE.values[not_null]).astype(np.int)
 crime_df.END_DATE.values[is_null] = (crime_df.START_DATE.values[is_null] + t_mean).astype(np.int)
+
+
 ## sort the df by start time
 crime_df.sort_values(by='START_DATE', inplace=True)
 print('number of negative start date:', np.sum(crime_df.START_DATE.values < 0))
 
+## Next we want to check if the samples are between 1/1/2016 and 12/31/2016
 start_time = datetime(2016, 1, 1, 0, 0, 0)
 end_time = datetime(2017, 1, 1, 0, 0, 0)
 start_dates = [datetime.fromtimestamp(t) for t in crime_df.START_DATE.values]

@@ -22,7 +22,7 @@ all_url = [url_h_grad, url_b_grad, url_o_occ_r, url_o_occ_mv,
 for i in range(len(all_url)):
     all_url[i] = base_url + all_url[i][0], all_url[i][1]
 
-def census_data(url_list):
+def scraping_census_data(url_list):
     census_df = pd.DataFrame()
     # each iteration scrape one variable in the given url list
     for url, var_name in url_list:
@@ -47,7 +47,10 @@ def census_data(url_list):
             census_df.loc[:, var_name] = data
     return census_df
 
-# cleaned data
-census_df = census_data(all_url)
+# scraped data
+census_df = scraping_census_data(all_url)
 
-census_df.to_csv('cleaned_data/census_cleaned.csv')
+census_df.to_csv('raw_data/census_raw.csv')
+
+
+

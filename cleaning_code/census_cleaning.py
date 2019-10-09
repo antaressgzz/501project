@@ -1,6 +1,7 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import pandas as pd
+import numpy as np
 import warnings
 
 base_url = 'https://www.census.gov/quickfacts/geo/chart/ameliacountyvirginia/'
@@ -50,7 +51,21 @@ def scraping_census_data(url_list):
 # scraped data
 census_df = scraping_census_data(all_url)
 
+# preview
+print(census_df.head())
+
 census_df.to_csv('raw_data/census_raw.csv')
 
+census_df = pd.read_csv('raw_data/census_raw.csv')
 
+perc_col = ['h_grad', 'b_grad', 'o_occ_r', 'o_occ_mv', 'lv_sm', 'emp_chg']
+mny_col = ['o_m_cst', 'gos_ret']
 
+# format
+for c in perc_col:
+    census_df.loc[:, c] = [np.float(v[:-1]) / 100 for v in census_df.loc[:, c].values]
+
+for c in mny_col:
+    census_df.loc[:, c] = [np.float(v[1:].replace(',', '')) for v in census_df.loc[:, c].values]
+
+census_df.to_csv('cleaned_data/census_cleaned.csv')

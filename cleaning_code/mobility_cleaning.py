@@ -60,23 +60,23 @@ mob_va_cleaned.to_csv('cleaned_data/mob_md_cleaned.csv')
 #################################################################
 
 ##################### boxplot ####################
-# fig = go.Figure()
-# fig.add_trace(go.Box(y=mob_va_cleaned.mob_ratio, name='in/out', boxpoints='all',jitter=0.3,pointpos=-1.8))
-# fig.add_trace(go.Box(y=mob_va_cleaned.os_ratio, name='overseas/in', boxpoints='all',jitter=0.3,pointpos=-1.8))
-# fig.update_layout(
-#     title='ratio boxlpot',
-#     yaxis_title='ratio'
-# )
-# fig.show()
+fig = go.Figure()
+fig.add_trace(go.Box(y=mob_va_cleaned.mob_ratio, name='in/out', boxpoints='all',jitter=0.3,pointpos=-1.8))
+fig.add_trace(go.Box(y=mob_va_cleaned.os_ratio, name='overseas/in', boxpoints='all',jitter=0.3,pointpos=-1.8))
+fig.update_layout(
+    title='ratio boxlpot',
+    yaxis_title='ratio'
+)
+fig.show()
 
-##### boxplot shows tha there is a in/out ratio extremely higher than majority
-##### we check what happened
-# with pd.option_context('display.max_columns', None):
-#     print(mob_va_cleaned.sort_values(by='mob_ratio').iloc[-5:])
+#### boxplot shows tha there is a in/out ratio extremely higher than majority
+#### we check what happened
+with pd.option_context('display.max_columns', None):
+    print(mob_va_cleaned.sort_values(by='mob_ratio').iloc[-5:])
 
-### Norton city has in/out ratio of 10.5, significant higher than 50% quantil, which is 1
-### After checking the origin data, we may believe there is no incorrectness, consistency about this sample
-### We decide to believe this outlier is correct
+## Norton city has in/out ratio of 10.5, significant higher than 50% quantil, which is 1
+## After checking the origin data, we may believe there is no incorrectness, consistency about this sample
+## We decide to believe this outlier is correct
 ###############################################################
 
 

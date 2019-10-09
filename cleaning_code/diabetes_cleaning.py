@@ -28,23 +28,33 @@ diabetes_DF = pd.concat([diabetes_va, diabetes_md], ignore_index=True)
 #     print(diabetes_md)
 #     print(diabetes_md.iloc[:, 1:].astype(np.float).describe())
 
-############### we drop all cities in va and rename counties to match the crime data
+############### we rename counties to match the crime data and only keep county data.
 s1 = 'County'
 s2 = 'City'
 for c in diabetes_DF.County.values:
-    if c.endswith(s2):
-        diabetes_DF.drop(diabetes_DF.index[diabetes_DF['County'] == c], axis=0, inplace=True)
-    elif c.endswith(s1):
+    if c.endswith(s1):
         diabetes_DF.loc[diabetes_DF.index[diabetes_DF['County'] == c], 'County'] = c[:-7]
+    elif c.endswith(s2):
+        diabetes_DF.drop(diabetes_DF.index[diabetes_DF['County'] == c], axis=0, inplace=True)
+############### missing values
+print('Missing values:', np.where(pd.isnull(diabetes_DF)))
 
+############### Reassign index
 diabetes_DF.index = np.arange(len(diabetes_DF))
-diabetes_DF.iloc[:, 1:] = diabetes_DF.iloc[:, 1:].astype(np.float)
-######################################
+
+# histogram for distribution of diabetes percentage in VA
+fig = px.histogram(diabetes_DF, x="Percentage",nbins=20)
+fig.update_layout(
+    title='Diabetes Distribution Histogram',
+    yaxis_title='Percentage'
+)
+fig.show()
+
 
 diabetes_DF.to_csv('cleaned_data/disbetes_cleaned.csv')
 
 # boxplot for Percentage
-fig = go.Figure()
-fig.add_trace(go.Box(y=diabetes_DF.Percentage, name='Percentage', notched=True,
-                     boxpoints='all', jitter=0.3, pointpos=-1.8))
-fig.show()
+# fig = go.Figure()
+# fig.add_trace(go.Box(y=diabetes_DF.Percentage, name='Percentage', notched=True,
+#                      boxpoints='all', jitter=0.3, pointpos=-1.8))
+# fig.show()

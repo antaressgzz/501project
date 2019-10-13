@@ -26,12 +26,13 @@ url_post = {
     'returnIdsOnly':'true'
 }
 
+
 res_ids = requests.get(base_url, url_post)
 
 obj_ids = res_ids.json()['objectIds']
 # pprint(obj_ids)
 
-
+##
 url_post['returnIdsOnly'] = 'false'
 
 # split a list into evenly sized chunks

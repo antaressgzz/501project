@@ -1,96 +1,119 @@
-,County,CountyFIPS,Percentage
-0,Accomack,51001,12.7
-1,Albemarle,51003,6.2
-2,Alleghany,51005,13.2
-3,Amelia,51007,12.1
-4,Amherst,51009,12.1
-5,Appomattox,51011,15.6
-6,Arlington,51013,4.6
-7,Augusta,51015,14.8
-8,Bath,51017,3.8
-9,Bedford,51019,12.8
-10,Bland,51021,13.4
-11,Botetourt,51023,9.7
-12,Brunswick,51025,13
-13,Buchanan,51027,8.3
-14,Buckingham,51029,14.9
-15,Campbell,51031,9.5
-16,Caroline,51033,11.8
-17,Carroll,51035,15.9
-18,Charles City,51036,13.9
-19,Charlotte,51037,9.3
-20,Chesterfield,51041,9.2
-21,Clarke,51043,10.4
-22,Craig,51045,8.3
-23,Culpeper,51047,8.8
-24,Cumberland,51049,13.2
-25,Dickenson,51051,10.1
-26,Dinwiddie,51053,13.6
-27,Essex,51057,11.8
-28,Fairfax,51059,5.9
-29,Fauquier,51061,7.5
-30,Floyd,51063,7.6
-31,Fluvanna,51065,14.4
-32,Franklin,51067,11.8
-33,Frederick,51069,10.5
-34,Giles,51071,16.6
-35,Gloucester,51073,10.3
-36,Goochland,51075,7.3
-37,Grayson,51077,8
-38,Greene,51079,5.6
-39,Greensville,51081,12.6
-40,Halifax,51083,17.3
-41,Hanover,51085,10.5
-42,Henrico,51087,8.5
-43,Henry,51089,17.5
-44,Highland,51091,11.2
-45,Isle Of Wight,51093,9.7
-46,James City,51095,7.4
-47,King And Queen,51097,9.9
-48,King George,51099,12.4
-49,King William,51101,13.7
-50,Lancaster,51103,9
-51,Lee,51105,14.7
-52,Loudoun,51107,6.6
-53,Louisa,51109,11.5
-54,Lunenburg,51111,7.4
-55,Madison,51113,9.7
-56,Mathews,51115,4.1
-57,Mecklenburg,51117,15.7
-58,Middlesex,51119,6.4
-59,Montgomery,51121,8.1
-60,Nelson,51125,4
-61,New Kent,51127,7.5
-62,Northampton,51131,11.4
-63,Northumberland,51133,7.9
-64,Nottoway,51135,20.6
-65,Orange,51137,12.2
-66,Page,51139,19.9
-67,Patrick,51141,13.5
-68,Pittsylvania,51143,9.9
-69,Powhatan,51145,15.4
-70,Prince Edward,51147,13.5
-71,Prince George,51149,11.5
-72,Prince William,51153,9.2
-73,Pulaski,51155,11.8
-74,Rappahannock,51157,6.5
-75,Richmond,51159,13.4
-76,Roanoke,51161,9.1
-77,Rockbridge,51163,10
-78,Rockingham,51165,8.5
-79,Russell,51167,16.6
-80,Scott,51169,14.3
-81,Shenandoah,51171,13
-82,Smyth,51173,12.8
-83,Southampton,51175,13.8
-84,Spotsylvania,51177,10.3
-85,Stafford,51179,7.3
-86,Surry,51181,11.8
-87,Sussex,51183,9.8
-88,Tazewell,51185,11.9
-89,Warren,51187,13.7
-90,Washington,51191,15.6
-91,Westmoreland,51193,13.8
-92,Wise,51195,16
-93,Wythe,51197,10.6
-94,York,51199,7.6
+,CountyFIPS,Percentage
+"Accomack, VA",51001,12.7
+"Albemarle, VA",51003,6.2
+"Allegany, MD",24001,13.2
+"Alleghany, VA",51005,13.2
+"Amelia, VA",51007,12.1
+"Amherst, VA",51009,12.1
+"Anne Arundel, MD",24003,8.8
+"Appomattox, VA",51011,15.6
+"Arlington, VA",51013,4.6
+"Augusta, VA",51015,14.8
+"Baltimore, MD",24005,9.4
+"Bath, VA",51017,3.8
+"Bedford, VA",51019,12.8
+"Bland, VA",51021,13.4
+"Botetourt, VA",51023,9.7
+"Brunswick, VA",51025,13
+"Buchanan, VA",51027,8.3
+"Buckingham, VA",51029,14.9
+"Calvert, MD",24009,9.9
+"Campbell, VA",51031,9.5
+"Caroline, MD",24011,11.0
+"Caroline, VA",51033,11.8
+"Carroll, MD",24013,8.3
+"Carroll, VA",51035,15.9
+"Cecil, MD",24015,9.9
+"Charles City, VA",51036,13.9
+"Charles, MD",24017,10.8
+"Charlotte, VA",51037,9.3
+"Chesterfield, VA",51041,9.2
+"Clarke, VA",51043,10.4
+"Craig, VA",51045,8.3
+"Culpeper, VA",51047,8.8
+"Cumberland, VA",51049,13.2
+"Dickenson, VA",51051,10.1
+"Dinwiddie, VA",51053,13.6
+"Dorchester, MD",24019,16.0
+"Essex, VA",51057,11.8
+"Fairfax, VA",51059,5.9
+"Fauquier, VA",51061,7.5
+"Floyd, VA",51063,7.6
+"Fluvanna, VA",51065,14.4
+"Franklin, VA",51067,11.8
+"Frederick, MD",24021,8.0
+"Frederick, VA",51069,10.5
+"Garrett, MD",24023,10.4
+"Giles, VA",51071,16.6
+"Gloucester, VA",51073,10.3
+"Goochland, VA",51075,7.3
+"Grayson, VA",51077,8
+"Greene, VA",51079,5.6
+"Greensville, VA",51081,12.6
+"Halifax, VA",51083,17.3
+"Hanover, VA",51085,10.5
+"Harford, MD",24025,9.4
+"Henrico, VA",51087,8.5
+"Henry, VA",51089,17.5
+"Highland, VA",51091,11.2
+"Howard, MD",24027,8.0
+"Isle Of Wight, VA",51093,9.7
+"James City, VA",51095,7.4
+"Kent, MD",24029,8.6
+"King And Queen, VA",51097,9.9
+"King George, VA",51099,12.4
+"King William, VA",51101,13.7
+"Lancaster, VA",51103,9
+"Lee, VA",51105,14.7
+"Loudoun, VA",51107,6.6
+"Louisa, VA",51109,11.5
+"Lunenburg, VA",51111,7.4
+"Madison, VA",51113,9.7
+"Mathews, VA",51115,4.1
+"Mecklenburg, VA",51117,15.7
+"Middlesex, VA",51119,6.4
+"Montgomery, MD",24031,7.0
+"Montgomery, VA",51121,8.1
+"Nelson, VA",51125,4
+"New Kent, VA",51127,7.5
+"Northampton, VA",51131,11.4
+"Northumberland, VA",51133,7.9
+"Nottoway, VA",51135,20.6
+"Orange, VA",51137,12.2
+"Page, VA",51139,19.9
+"Patrick, VA",51141,13.5
+"Pittsylvania, VA",51143,9.9
+"Powhatan, VA",51145,15.4
+"Prince Edward, VA",51147,13.5
+"Prince George, VA",51149,11.5
+"Prince Georges, MD",24033,12.1
+"Prince William, VA",51153,9.2
+"Pulaski, VA",51155,11.8
+"Queen Annes, MD",24035,8.3
+"Rappahannock, VA",51157,6.5
+"Richmond, VA",51159,13.4
+"Roanoke, VA",51161,9.1
+"Rockbridge, VA",51163,10
+"Rockingham, VA",51165,8.5
+"Russell, VA",51167,16.6
+"Scott, VA",51169,14.3
+"Shenandoah, VA",51171,13
+"Smyth, VA",51173,12.8
+"Somerset, MD",24039,12.3
+"Southampton, VA",51175,13.8
+"Spotsylvania, VA",51177,10.3
+"St. Marys, MD",24037,11.2
+"Stafford, VA",51179,7.3
+"Surry, VA",51181,11.8
+"Sussex, VA",51183,9.8
+"Talbot, MD",24041,8.8
+"Tazewell, VA",51185,11.9
+"Warren, VA",51187,13.7
+"Washington, MD",24043,12.0
+"Washington, VA",51191,15.6
+"Westmoreland, VA",51193,13.8
+"Wicomico, MD",24045,10.6
+"Wise, VA",51195,16
+"Worcester, MD",24047,9.3
+"Wythe, VA",51197,10.6
+"York, VA",51199,7.6

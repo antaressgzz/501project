@@ -65,25 +65,27 @@ fig.show()
 # B: 20,000 >=  population
 
 
-crime_DF.loc[crime_DF.Population.values <= 20000, 'Pop_Gp'] = 'B'
-crime_DF.loc[(crime_DF.Population.values > 20000), 'Pop_Gp'] = 'A'
-print('Number of counties in group A:', sum(crime_DF.Population.values > 20000))
-print('Number of counties in group B:', sum(crime_DF.Population.values <= 20000))
+# crime_DF.loc[crime_DF.Population.values <= 20000, 'Pop_Gp'] = 'B'
+# crime_DF.loc[(crime_DF.Population.values > 20000), 'Pop_Gp'] = 'A'
+# print('Number of counties in group A:', sum(crime_DF.Population.values > 20000))
+# print('Number of counties in group B:', sum(crime_DF.Population.values <= 20000))
 
 crime_DF.to_csv('cleaned_data/crime_VM_cleaned.csv')
 
 # check distribution of different violent crime types
 fig = go.Figure()
-fig.add_trace(go.Box(y=crime_DF.Rape, x=crime_DF.Pop_Gp, name='Rape', boxpoints='all', jitter=0.3, pointpos=-1.8))
-fig.add_trace(go.Box(y=crime_DF.Robbery, x=crime_DF.Pop_Gp, name='Robbery', boxpoints='all', jitter=0.3, pointpos=-1.8))
-fig.add_trace(go.Box(y=crime_DF.Murder_and_nonnegligent_manslaughter, x=crime_DF.Pop_Gp,
+
+fig.add_trace(go.Box(y=crime_DF.Rape, name='Rape', boxpoints='all', jitter=0.3, pointpos=-1.8))
+fig.add_trace(go.Box(y=crime_DF.Robbery, name='Robbery', boxpoints='all', jitter=0.3, pointpos=-1.8))
+fig.add_trace(go.Box(y=crime_DF.Murder_and_nonnegligent_manslaughter,
                      name='Murder_and_nonnegligent_manslaughter', boxpoints='all', jitter=0.3, pointpos=-1.8))
-fig.add_trace(go.Box(y=crime_DF.Aggravated_assault, x=crime_DF.Pop_Gp,
+fig.add_trace(go.Box(y=crime_DF.Aggravated_assault,
                      name='Aggravated_assault', boxpoints='all', jitter=0.3, pointpos=-1.8))
+
 fig.update_layout(
     title='Violent crime distribution',
     yaxis_title='crime per 100,000 inhabitant',
-    boxmode='group' # group together boxes of the different traces for each value of x
+
 )
 fig.show()
 
